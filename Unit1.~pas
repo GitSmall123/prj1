@@ -205,7 +205,8 @@ end;
 
 procedure TForm1.Button5Click(Sender: TObject);
 begin
-
+if (DBGrid2.Fields[2].AsString<>'') then
+begin
         DataModule2.ADOQWork.Close;
         DataModule2.ADOQWork.SQL.Text:='UPDATE Журнал_темы SET Журнал_темы.[Тема_занятия] = "'+Edit1.Text+'" '
         +'  WHERE (((Журнал_темы.[Код_записи])='+DBGrid2.Fields[2].AsString+'))';
@@ -213,7 +214,7 @@ begin
 
         Button3Click(Sender);
         Edit1.Clear;
-
+     end;
 end;
 
 procedure TForm1.DBGrid2CellClick(Column: TColumn);

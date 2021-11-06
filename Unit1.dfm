@@ -61,6 +61,13 @@ object Form1: TForm1
     ParentFont = False
     WordWrap = True
   end
+  object Label11: TLabel
+    Left = 448
+    Top = 48
+    Width = 38
+    Height = 13
+    Caption = 'Label11'
+  end
   object DBGrid1: TDBGrid
     Left = 8
     Top = 160
