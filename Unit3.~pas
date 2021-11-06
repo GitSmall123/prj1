@@ -1,0 +1,41 @@
+unit Unit3;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Grids, DBGrids;
+
+type
+  TForm3 = class(TForm)
+    Button1: TButton;
+    Edit1: TEdit;
+    Label1: TLabel;
+    procedure Button1Click(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form3: TForm3;
+
+implementation
+
+uses Unit1, Unit2;
+
+{$R *.dfm}
+
+procedure TForm3.Button1Click(Sender: TObject);
+begin
+DataModule2.ADOQWork.Close;
+DataModule2.ADOQWork.SQL.Text:= 'UPDATE Журнал_дата SET Журнал_дата.[Оценка] = "'+Edit1.Text+'" '
++' WHERE (((Журнал_дата.[ФИО_ученика])="'+fio_uch+'") AND ((Журнал_дата.[Код_Предмета])='+kod_predm+')) AND((Журнал_дата.[Дата])like "%'+col_name+'%")';
+DataModule2.ADOQWork.ExecSQL;
+ Form3.Close;
+Form1.Button3Click(Sender);
+end;
+
+
+end.
